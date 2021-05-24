@@ -1,0 +1,2 @@
+rootProject.name = "kvd"
+include ':app'
