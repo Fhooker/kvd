@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import me.keepalive.demo.em.One;
+import me.keepalive.demo.em.Two;
+import me.keepalive.demo.rs.MyService;
 
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mContext=getApplicationContext();
+        mContext = getApplicationContext();
     }
 
     public void onClick(View view) {
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 One.launchAlarm(mContext);
                 break;
             case R.id.btn2:
+                Two.launchService(mContext, MyService.class.getName());
                 break;
             case R.id.btn3:
                 break;

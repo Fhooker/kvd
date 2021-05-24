@@ -10,6 +10,10 @@ import android.os.SystemClock;
 import me.keepalive.demo.rs.MyReceiver;
 import me.keepalive.demo.uts.Ml;
 
+/**
+ * @author sanbo
+ * @See: 闹铃相关调用
+ */
 public class One {
 
     public static void launchAlarm(Context context) {

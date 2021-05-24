@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kvd">
+        <service
+            android:name=".rs.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,9 +22,8 @@
             </intent-filter>
         </activity>
 
-
         <receiver
-            android:name="me.keepalive.demo.rs.MyReceiver"
+            android:name=".rs.MyReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
