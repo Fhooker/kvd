@@ -1,13 +1,17 @@
 package me.keepalive.demo.rs;
 
+import android.app.Notification;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
+
+import androidx.annotation.Nullable;
 
 import me.keepalive.demo.uts.Ml;
 
@@ -29,8 +33,29 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         Ml.d("MyService onCreate");
-
         bindDaemonService();
+
+
+        if (Build.VERSION.SDK_INT<Build.VERSION_CODES.HONEYCOMB_MR2){
+            startForeground(1,new Notification());
+        }else{
+            startForeground(1,new Notification());
+            // 8.0以后无效
+            startService(new Intent(this,InnerService.class));
+        }
+    }
+    public static class InnerService extends  Service{
+        @Nullable
+        @Override
+        public IBinder onBind(Intent intent) {
+            return null;
+        }
+
+        @Override
+        public void onCreate() {
+            super.onCreate();
+            stopSelf();
+        }
     }
 
     protected void bindDaemonService() {
