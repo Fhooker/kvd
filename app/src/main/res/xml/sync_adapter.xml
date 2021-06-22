@@ -2,7 +2,8 @@
 
 <sync-adapter xmlns:android="http://schemas.android.com/apk/res/android"
     android:accountType="me.keepalive.account"
-    android:allowParallelSyncs="false"
     android:contentAuthority="me.keepalive.provider"
+    android:allowParallelSyncs="false"
+    android:supportsUploading="false"
     android:isAlwaysSyncable="true"
     android:userVisible="false" />
